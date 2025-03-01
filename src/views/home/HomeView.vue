@@ -9,6 +9,7 @@
     <div>可选： {{ input }}</div>
     <div>使用接口：{{ interfa }}</div>
     <div>使用泛型：{{ fanxing }}</div>
+    子组件
     <div v-for="(item,index) in list" :key="index">
       <ListItem :item="item"/>
     </div>

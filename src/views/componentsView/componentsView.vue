@@ -2,7 +2,11 @@
   <div>
     表单组件封装
     <div>数据：{{ form }}</div>
-    <lee-form :form="form" :formList="formList" @update:form="updateForm" />
+    <lee-form :form="form" :formList="formList" @update:form="updateForm">
+      <template v-slot:slotOne>
+        <div>这是个插槽<el-input v-model="form.slotOne"/></div>
+      </template>
+    </lee-form>
   </div>
 </template>
 <script setup lang="ts">
@@ -85,6 +89,15 @@ const formList = computed<FormList[]>(()=>[
           }
         ]
       }
+    ]
+  },
+  {
+    renderType: 'slot',
+    label: '插槽',
+    prop: 'slotOne',
+    slotName: 'slotOne', 
+    rules: [
+      { required: true, message: '请输入', trigger: 'blur' }
     ]
   },
   {

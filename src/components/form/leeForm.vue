@@ -8,18 +8,23 @@
           :key="index"
         >
           <el-form-item :rules="item.rules" :label="item.label" :key="index" :prop="item.prop">
-            <el-cascader v-if="item.renderType === 'ElCascader'" v-model="localForm[item.prop]" :options="item.options" />
-            <component v-else :is="handleComponent(item.renderType)" v-model="localForm[item.prop]" v-bind="item">
-              <template v-if="item.renderType === 'ElSelect'">
-                <el-option v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-option>
-              </template>
-              <template v-if="item.renderType === 'ElRadioGroup'">
-                <el-radio v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-radio>
-              </template>
-              <template v-if="item.renderType === 'ElCheckboxGroup'">
-                <el-checkbox v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-checkbox>
-              </template>
-            </component>
+            <template v-if="item.renderType === 'slot'">
+              <slot :name="item.slotName"></slot>
+            </template>
+            <div v-if="item.renderType !== 'slot'">
+              <el-cascader v-if="item.renderType === 'ElCascader'" v-model="localForm[item.prop]" :options="item.options" />
+              <component v-else :is="handleComponent(item.renderType)" v-model="localForm[item.prop]" v-bind="item">
+                <template v-if="item.renderType === 'ElSelect'">
+                  <el-option v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-option>
+                </template>
+                <template v-if="item.renderType === 'ElRadioGroup'">
+                  <el-radio v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-radio>
+                </template>
+                <template v-if="item.renderType === 'ElCheckboxGroup'">
+                  <el-checkbox v-for="option in item.options" :key="option.value" :label="option.label" :value="option.value"></el-checkbox>
+                </template>
+              </component>
+            </div>
           </el-form-item>
         </el-col>
       </el-row>

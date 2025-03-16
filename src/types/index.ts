@@ -13,3 +13,16 @@ export interface FormInter {
  
 // 一个自定义类型
 export type FormList = Array<FormListInter>
+
+// 定义一个tableData接口
+export interface TableDataInter {
+  [key: string]: any;
+}
+
+// 定义一个tableList接口
+export interface TableLististInter {
+  [key: string]: any;
+}
+export type TableList = Array<TableLististInter>
+export type TableData = Array<TableDataInter>
+

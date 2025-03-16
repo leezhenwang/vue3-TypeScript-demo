@@ -33,14 +33,21 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/test/TestView.vue')
     },
+    // 表单组件示例
     {
-      path: '/componentsView',
-      name: 'componentsView',
+      path: '/formView',
+      name: 'formView',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/componentsView/componentsView.vue')
+      component: () => import('../views/componentsView/formView.vue')
     },
+    // 表格组件示例
+    {
+      path: '/tableView',
+      name: 'tableView',
+      component: () => import('../views/componentsView/tableView.vue')
+    }
   ]
 })
 

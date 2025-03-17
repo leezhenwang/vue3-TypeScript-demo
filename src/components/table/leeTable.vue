@@ -16,10 +16,10 @@
       :key="item.prop"
     >
       <template #default="{row}">
-        <slot v-if="item.type === 'slot'" :name="item.prop" :row="row">
+        <slot v-if="item.renderType === 'slot'" :name="item.prop" :row="row">
         </slot>
         <template v-else-if="!row._isEdit || !item.editType">
-          <span v-if="item.type !== 'operation'">{{ row[item.prop] }}</span>
+          <span v-if="item.renderType !== 'operation'">{{ row[item.prop] }}</span>
           <!-- 操作列 -->
           <span v-else>
             <el-button v-for="(btn, index) in item.buttons" :key="index" :type="btn.type" :size="btn.size" :plain="btn.plain" @click="btn.onClick(row)">

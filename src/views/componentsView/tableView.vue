@@ -67,17 +67,17 @@ const columns = reactive([{
 },{
     prop: 'status',
     label: '状态',
-    type: 'slot',
+    renderType: 'slot',
     width: 100
 },{
     prop: 'address',
     label: '地址插槽',
-    type: 'slot',
+    renderType: 'slot',
     editType: 'slot',
     width: 100
 },{
     prop: '',
-    type: 'operation',
+    renderType: 'operation',
     buttons: [{
       label: '编辑',
       type: 'primary',

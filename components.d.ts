@@ -30,6 +30,7 @@ declare module 'vue' {
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     LeeForm: typeof import('./src/components/form/leeForm.vue')['default']
     LeeTable: typeof import('./src/components/table/leeTable.vue')['default']
+    LeeVxeTable: typeof import('./src/components/table/leeVxeTable.vue')['default']
     ListItem: typeof import('./src/components/ListItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

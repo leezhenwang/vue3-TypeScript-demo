@@ -23,6 +23,6 @@ export interface TableDataInter {
 export interface TableLististInter {
   [key: string]: any;
 }
-export type TableList = Array<TableLististInter>
+export type TableColumns = Array<TableLististInter>
 export type TableData = Array<TableDataInter>
 

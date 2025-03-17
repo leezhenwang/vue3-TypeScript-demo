@@ -47,6 +47,11 @@ const router = createRouter({
       path: '/tableView',
       name: 'tableView',
       component: () => import('../views/componentsView/tableView.vue')
+    },
+    {
+      path: '/vxeTableView',
+      name: 'vxeTableView',
+      component: () => import('../views/componentsView/vxeTableView.vue')
     }
   ]
 })

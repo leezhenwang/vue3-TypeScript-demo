@@ -1,12 +1,8 @@
 <template>
   这里是表格示例
-  <LeeTable
+  <leeVxeTable
     :table-data="tableData"
     :table-columns="columns"
-    :show-action="true"
-    :show-pagination="true"
-    :total="100"
-    @page-change="handlePageChange"
   >
     <!-- 自定义列内容 -->
     <template #status="{ row }">
@@ -19,7 +15,7 @@
       <el-input v-if="row._isEdit" v-model="row.address"></el-input>
       <div v-else>{{ row.address }}</div>
     </template>
-  </LeeTable>
+  </leeVxeTable>
 </template>
 <script lang="ts" setup>
 import { reactive } from "vue";
@@ -51,32 +47,32 @@ const tableData = reactive([{
   }])
 
 const columns = reactive([{
-    prop: 'id',
-    label: 'ID',
+    field: 'id',
+    title: 'ID',
     width: 100  
 },{
-    prop: 'name',
-    label: '姓名',
+    field: 'name',
+    title: '姓名',
     width: 100
 },{
-    prop: 'age',
+    field: 'age',
     editType: 'ElInputNumber',
-    label: '年龄',
+    title: '年龄',
     editProps: { min: 0, max: 100 },
     width: 180
 },{
-    prop: 'status',
-    label: '状态',
+    field: 'status',
+    title: '状态',
     type: 'slot',
     width: 100
 },{
-    prop: 'address',
-    label: '地址插槽',
+    field: 'address',
+    title: '地址插槽',
     type: 'slot',
     editType: 'slot',
     width: 100
 },{
-    prop: '',
+    field: '',
     type: 'operation',
     buttons: [{
       label: '编辑',

@@ -5,9 +5,10 @@
     v-loading="loading"
     :border="border"
     :stripe="stripe"
+    v-on="$attrs"
   >
     <el-table-column 
-      v-for="item in tableList" 
+      v-for="item in tableColumns" 
       :fixed="item.fixed" 
       :prop="item.prop" 
       :label="item.label" 
@@ -30,7 +31,7 @@
         <template v-else>
           <slot v-if="item.editType === 'slot'" :name="item.prop" :row="row">
           </slot>
-          <component :is="handleComponent(item.editType)" v-model="row[item.prop]" v-bind="item"></component>
+          <component :is="handleComponent(item.editType)" v-model="row[item.prop]" v-bind="item.editProps"></component>
         </template>
       </template>
     </el-table-column>
@@ -50,12 +51,12 @@
 </template>
 
 <script lang="ts" setup>
-import { type TableData, type TableList } from "@/types/types"
+import { type TableData, type TableColumns } from "@/types/types"
 import { ElInputNumber, ElInput, ElSelect, ElDatePicker, ElRadioGroup, ElSwitch, ElCheckboxGroup, ElCascader } from 'element-plus';
 
 interface Props {
   tableData: TableData
-  tableList: TableList
+  tableColumns: TableColumns
   loading?: boolean
   border?: boolean
   stripe?: boolean
@@ -67,7 +68,7 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   tableData: () => [],
-  tableList: () => [],
+  tableColumns: () => [],
   loading: false,
   border: true,
   stripe: true,

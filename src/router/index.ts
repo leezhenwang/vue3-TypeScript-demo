@@ -42,6 +42,14 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/componentsView/formView.vue')
     },
+    {
+      path: '/formView2',
+      name: 'formView2',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/componentsView/formView2.vue')
+    },
     // 表格组件示例
     {
       path: '/tableView',

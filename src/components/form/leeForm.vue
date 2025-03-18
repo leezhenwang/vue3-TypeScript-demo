@@ -1,5 +1,5 @@
 <template>
-  <el-form ref="form" :model="props.form" label-width="auto" style="max-width: 1000px">
+  <el-form ref="form" :model="props.form" :label-width="labelWidth" style="max-width: 1000px">
     <el-row>
         <!--不循环row，直接循环col，放不下会自动往下换行。-->
         <el-col
@@ -29,16 +29,21 @@
         </el-col>
       </el-row>
   </el-form>
+  <div style="text-align: right;">
+    <el-button v-for="item in buttonList" :key="item.label" @click="emit('button-click',item.btnType)">{{item.text}}</el-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue';
-const emit = defineEmits(['update:form']);
+const emit = defineEmits(['update:form', 'button-click']);
 import { ElInputNumber, ElInput, ElSelect, ElDatePicker, ElRadioGroup, ElSwitch, ElCheckboxGroup, ElCascader } from 'element-plus';
 import {type FormList, FormInter} from "@/types/types"
-let props = withDefaults(defineProps<{formList?:FormList, form?:FormInter}>(),{
+let props = withDefaults(defineProps<{formList?:FormList, form?:FormInter, labelWidth?:string, buttonList?:{text:string, btnType:string}[]}>(),{
   formList:()=>[],
-  form: ()=>({})
+  form: ()=>({}),
+  labelWidth: ()=> '120px',
+  buttonList:()=>[],
 })
 
 // 使用 computed 属性来创建本地响应式数据

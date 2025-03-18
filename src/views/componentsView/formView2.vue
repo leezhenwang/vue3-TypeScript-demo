@@ -43,6 +43,8 @@
         />
       </template>
     </lee-form>
+    测试视频播放
+    <VideoPlayer src="https://www.runoob.com/try/demo_source/movie.mp4" />
   </div>
 </template>
 <script setup lang="ts">

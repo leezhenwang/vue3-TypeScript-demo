@@ -14,10 +14,12 @@
             { prop: 'name', label: '姓名', width: 100 },
             { prop: 'age', label: '年龄', width: 100 }
           ]"
-          @select="(val) => {
-            console.log(val)
-            form.slotTwo = { label: val.name, value: val.id }
-          }"
+          @select="
+            (val) => {
+              console.log(val)
+              form.slotTwo = { label: val.name, value: val.id }
+            }
+          "
         />
       </template>
       <template v-slot:slotThree>
@@ -32,10 +34,12 @@
             { prop: 'name', label: '姓名', width: 200 },
             { prop: 'age', label: '年龄', width: 200 }
           ]"
-          @select="(val) => {
-            console.log(val)
-            form.slotThree = val
-          }"
+          @select="
+            (val) => {
+              console.log(val)
+              form.slotThree = val
+            }
+          "
         />
       </template>
     </lee-form>
@@ -63,7 +67,7 @@ const formList = computed<FormList[]>(() => [
     span: 12,
     slotName: 'slotThree',
     rules: [{ required: true, message: '请选择', trigger: 'blur' }]
-  },
+  }
 ])
 const formListTwo = computed<FormList[]>(() => [
   {
@@ -71,11 +75,11 @@ const formListTwo = computed<FormList[]>(() => [
     label: '姓名',
     prop: 'name',
     span: 12
-  }, 
+  },
   {
     renderType: 'ElInputNumber',
     label: '年龄',
-    prop: 'age', 
+    prop: 'age',
     span: 12
   }
 ])
@@ -85,11 +89,11 @@ const formListThree = computed<FormList[]>(() => [
     label: '姓名',
     prop: 'name',
     span: 12
-  }, 
+  },
   {
     renderType: 'ElInputNumber',
     label: '年龄',
-    prop: 'age', 
+    prop: 'age',
     span: 12
   }
 ])
